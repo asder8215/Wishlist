@@ -1,13 +1,9 @@
 package com.example.wishlist
 
-import android.widget.TextView
-
 class WishlistFetcher {
     companion object {
-        fun getWish(item: String, price: String, url: String): MutableList<Wishlist> {
+        fun createEmptyWishList(): MutableList<Wishlist> {
             var wishlist : MutableList<Wishlist> = ArrayList()
-            val list = Wishlist(item, price, url)
-            wishlist.add(list)
             return wishlist
         }
 

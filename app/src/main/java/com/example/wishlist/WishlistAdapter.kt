@@ -17,7 +17,7 @@ class WishlistAdapter(private val wishlist: List<Wishlist>) : RecyclerView.Adapt
         val price: TextView
         val url: TextView
 
-        // We also create a constructor that accepts the entire item row
+        // constructor that accepts the entire item row
         // and does the view lookups to find each sub-view
         init {
             // Stores the itemView in a public final member variable that can be used
