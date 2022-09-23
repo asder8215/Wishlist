@@ -1,9 +1,14 @@
 package com.example.wishlist
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
@@ -17,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         // Lookup the RecyclerView in activity layout
         val wishlistRv = findViewById<RecyclerView>(R.id.wishlistRv)
+        //gets id for buttons and inputs
         val submitBtn = findViewById<Button>(R.id.submitBtn)
         val itemInput = findViewById<TextInputEditText>(R.id.itemInput)
         val priceInput = findViewById<TextInputEditText>(R.id.priceInput)
@@ -31,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         // Set layout manager to position the items
         wishlistRv.layoutManager = LinearLayoutManager(this)
 
+        //clicking the submit button will either give you a message to complete
+        //all input fields or will add the inputs the user provides, updating the adapter
         submitBtn.setOnClickListener{
             if(itemInput.text.toString().isEmpty() || priceInput.text.toString().isEmpty()
                 || urlInput.text.toString().isEmpty()){
@@ -44,6 +52,5 @@ class MainActivity : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
         }
-
     }
 }
